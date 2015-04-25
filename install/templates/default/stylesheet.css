@@ -1,0 +1,307 @@
+/*
+**
+**  @title:   Body Tags
+**  @tags:    html, body
+**
+*/
+
+html, body {
+	background: #F3F3F3;
+	color: #00000;
+	font-size: 0.9em;
+	font-family: Arial, Sans-serif, Verdana, Helvetica;
+}
+
+/*
+**
+**  @title:   Header Tags
+**  @tags:    h1, h2, h3, h4, h5, h6
+**
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	line-height: 1.35em;
+}
+
+h1 {
+	font-size: 1.6em;
+	color: #2A3744;
+}
+
+h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: #666666;
+}
+
+div#page-wrap {
+	background: #FFFFFF;
+	width: 900px;
+	margin: 20px auto 0 auto;
+	border: 1px solid #CCCCCC;
+}
+
+div#header-wrap {
+	border-bottom: 1px solid #CCCCCC;
+	padding: 0 0 15px 0;
+	padding: 20px;
+	}
+
+	div#header-wrap span {
+		font-size: 0.9em;
+	}
+
+div#content-wrap div#sidebar {
+	float: left;
+	background: #F3F3F3;
+	width: 25%;
+	height: 100%;
+	}
+
+	div#sidebar div#sidebar-footer,
+	div#sidebar ul li {
+		display: block;
+		padding: 14px 20px;
+		color: #999999;
+		border-right: 1px solid #CCCCCC;
+		}
+
+		div#sidebar ul li.current {
+			background: #FFFFFF;
+			color: #000000;
+			border-top: 1px solid #CCCCCC;
+			border-bottom: 1px solid #CCCCCC;
+			border-right: none;
+		}
+
+		div#sidebar ul li.first {
+			border-top: none;
+		}
+
+	div#sidebar div#sidebar-footer {
+		text-align: center;
+		padding-top: 20px;
+		}
+
+		div#sidebar-footer p {
+			font-size: 0.8em;
+		}
+
+div#content-wrap div#content {
+	float: left;
+	background: #FFFFFF;
+	width: 66%;
+	padding: 20px;
+	}
+
+	div#content h3,
+	div#content p {
+		margin-bottom: 20px;
+		line-height: 1.3em;
+	}
+
+	div#content div.error {
+		padding: 10px;
+		margin-bottom: 10px;
+		background-color: #FFEFEE;
+		border: 1px solid #FFD4D2;
+		color: #C80000;
+
+		-moz-border-radius: 3px;
+		-khtml-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+	}
+
+div#footer-wrap {
+	margin: 10px auto;
+	width: 900px;
+	text-align: center;
+	}
+
+	div#footer-wrap span {
+		font-size: 0.85714285714285714285714285714286em;
+		color: #666666;
+	}
+
+	div#footer-wrap span a:hover {
+		text-decoration: underline;
+	}
+/*
+	div#footer-wrap span a,
+	div#footer-wrap span a:hover,
+	div#footer-wrap span a:visited {
+		color: 666666;
+	}*/
+
+
+.rad3px {
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.rad5px {
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/*
+**
+**  @title:   Form Tags
+**  @tags:    form, input, select, button, label, textarea
+**
+*/
+
+	div#content form#installation-wizard {
+
+		}
+
+		form#installation-wizard label {
+			display: block;
+			/*width: 150px;*/
+			margin-bottom: 10px;
+			line-height: 0.6em;
+			}
+
+      form#installation-wizard b,
+      form#installation-wizard strong {
+        font-weight: bold;
+      }
+
+			form#installation-wizard label i {
+				color: #F73D43;
+			}
+
+    form#installation-wizard div.grid {
+      border-bottom: 1px solid #EEEEEE;
+      border-left: 1px solid #EEEEEE;
+      border-right: 1px solid #EEEEEE;
+      width: 100%;
+      clear: both;
+      margin-bottom: 10px;
+      }
+
+      form#installation-wizard div.grid div.title_row {
+        border-top: 1px solid #EEEEEE;
+      }
+
+      form#installation-wizard div.grid div.even {
+        border-top: 1px solid #EEEEEE;
+      }
+
+      form#installation-wizard div.grid div.odd {
+        border-top: 1px solid #EEEEEE;
+        background-color: #F7F7F7;
+      }
+
+      form#installation-wizard div.grid span {
+        display: inline-block;
+        padding: 6px 10px;
+        width: 24%;
+        }
+
+        form#installation-wizard div.grid div.title_row span {
+          font-weight: bold;
+          background-color: ;
+        }
+
+        form#installation-wizard div.grid span.first {
+          width: 40%;
+        }
+
+        form#installation-wizard div.info {
+          margin-bottom: 10px;
+        }
+
+        form#installation-wizard div.grid span a,
+        form#installation-wizard div.info a {
+          display: inline-block;
+          padding: 5px;
+
+          -moz-border-radius: 3px;
+          -khtml-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          border-radius: 3px;
+          }
+
+          a.good {
+            background-color: #50A150;
+            color: #FFFFFF;
+          }
+
+          a.ok {
+            background-color: #F89406;
+            color: #FFFFFF;
+          }
+
+          a.bad {
+            background-color: #B90000;
+            color: #FFFFFF;
+          }
+
+		form#installation-wizard input[type="text"],
+		form#installation-wizard input[type="password"],
+		form#installation-wizard input[type="submit"],
+		form#installation-wizard input[type="checkbox"],
+		form#installation-wizard input[type="button"],
+		form#installation-wizard button,
+		form#installation-wizard textarea,
+		form#installation-wizard select {
+			border: 1px solid #CCCCCC;
+			font-size: 1em;
+			padding: 5px 2%;
+			margin-bottom: 20px;
+
+			-moz-border-radius: 3px;
+			-khtml-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+		}
+
+    form#installation-wizard input[type="submit"],
+    form#installation-wizard input[type="button"],
+		form#installation-wizard button {
+
+		}
+
+		form#installation-wizard input[type="text"],
+		form#installation-wizard input[type="password"],
+		form#installation-wizard textarea {
+			width: 30%;
+		}
+
+    form#installation-wizard em#tips {
+      display: block;
+      margin-top: -15px;
+      color: #7E8A89;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+    }
+
+		form#installation-wizard input[type="checkbox"] {
+			display: inline-block;
+			}
+
+			form#installation-wizard span#title  {
+				font-size: 0.9em;
+			}
+
+		form#installation-wizard option {
+			padding: 2px 8px;
+			}
