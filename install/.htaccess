@@ -1,0 +1,24 @@
+# BEGIN
+	# this is the initialization
+	Options +FollowSymLinks
+
+	# Turns on the rewrite engine.
+	RewriteEngine On
+
+	# Edit to the proper base
+	RewriteBase /jencube/plugins/license-manager/app-folder/install/
+
+	# these are the rewrite conditions for directories and files not found
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{SCRIPT_FILENAME} !-f
+
+	# the rewrite rules
+	# RewriteRule ^(/source/.+\.php)s$ $1 [H=application/x-httpd-php-source]
+
+	# First Parameter
+	RewriteRule		^([a-zA-Z0-9\-]+)/?$	index.php?stage=$1 [L,QSA]
+
+	# this block php header redirect error
+	PHP_FLAG output_buffering on
+
+# END
