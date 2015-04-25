@@ -1,0 +1,2 @@
+INSERT INTO `{db-prefix}users` (`id`, `name`, `password`, `display_name`, `photo`, `privilege`, `auth_code`, `email`, `lang`, `last_login`, `registered`, `online`, `active`) VALUES
+('', '{admin-user}', '{admin-pass}', 'User Admin', '', 'Admin', '', '{admin-email}', 'en-us', '', '{register-date}', '0', '1');
