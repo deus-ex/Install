@@ -6,7 +6,7 @@
 	RewriteEngine On
 
 	# Edit to the proper base
-	RewriteBase /jencube/plugins/license-manager/app-folder/install/
+	RewriteBase /opensource-installer/install/
 
 	# these are the rewrite conditions for directories and files not found
 	RewriteCond %{SCRIPT_FILENAME} !-d
