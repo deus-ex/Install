@@ -745,8 +745,13 @@ You will have to edit the file yourself. Here is what you need to insert in that
         return FALSE;
       }
 
-      $createUser = $this->db->query( "CREATE USER '" . $config['db_user'] . "'@'" . $config['db_host'] . "' IDENTIFIED BY '" . $config['db_pass'] . "'" );
-      $grantAccess = $this->db->query( "GRANT ALL PRIVILEGES ON * . * TO '" . $config['db_user'] . "'@'" . $config['db_host'] . "' IDENTIFIED BY '" . $config['db_pass'] . "' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0" );
+      $dbHost = ( isset( $config['db_host'] ) ) ? $config['db_host'] : '';
+      $dbUser = ( isset( $config['db_user'] ) ) ? $config['db_user'] : '';
+      $dbPass = ( isset( $config['db_pass'] ) ) ? $config['db_pass'] : '';
+      $dbName = ( isset( $config['db_name'] ) ) ? $config['db_name'] : '';
+
+      $createUser = $this->db->query( "CREATE USER '" . $dbUser . "'@'" . $dbHost . "' IDENTIFIED BY '" . $dbPass . "'" );
+      $grantAccess = $this->db->query( "GRANT ALL PRIVILEGES ON * . * TO '" . $dbUser . "'@'" . $dbHost . "' IDENTIFIED BY '" . $dbPass . "' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0" );
 
       if ( ! $createUser && ! $grantAccess ) {
         $this->errorMsg[] = 'Unable to create database user. Please check the details entered';
@@ -754,7 +759,7 @@ You will have to edit the file yourself. Here is what you need to insert in that
       }
 
       if ( ! $this->db->select_db( $config['db_name'] ) ) {
-        $createDB = $this->db->query( "CREATE DATABASE IF NOT EXISTS `" . $config['db_name'] . "`" );
+        $createDB = $this->db->query( "CREATE DATABASE IF NOT EXISTS `" . $dbName . "`" );
         $dbCreated = ( $createDB ) ? TRUE : FALSE;
 
       } else {
@@ -763,15 +768,15 @@ You will have to edit the file yourself. Here is what you need to insert in that
       }
 
       if ( $dbCreated ) {
-        $grantDBAccess = $this->db->query( "GRANT ALL PRIVILEGES ON `" . $config['db_name'] . "` . * TO '" . $config['db_user'] . "'@'" . $config['db_host'] . "'" );
+        $grantDBAccess = $this->db->query( "GRANT ALL PRIVILEGES ON `" . $dbName . "` . * TO '" . $dbUser . "'@'" . $dbHost . "'" );
 
         if ( ! $grantDBAccess ) {
-          $this->errorMsg[] = 'Unable to grant "' . $config['db_user'] . '" access to "' . $config['db_name'] . '" database. Please check the details entered.';
+          $this->errorMsg[] = 'Unable to grant "' . $dbUser . '" access to "' . $dbName . '" database. Please check the details entered.';
           return FALSE;
         }
         return TRUE;
       } else {
-        $this->errorMsg[] = 'Unable to create "' . $config['db_name'] . '" database. Please check the details entered';
+        $this->errorMsg[] = 'Unable to create "' . $dbName . '" database. Please check the details entered';
         return FALSE;
       }
 
