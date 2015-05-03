@@ -731,8 +731,6 @@ You will have to edit the file yourself. Here is what you need to insert in that
       $configPath = $this->basePath . $this->includeDir . $this->configFileName;
       $dbCreated = FALSE;
 
-      include $configPath;
-
       $rootConfig = array(
         'db_type' => 'mysql',
         'db_host' => 'localhost',
@@ -745,6 +743,8 @@ You will have to edit the file yourself. Here is what you need to insert in that
         return FALSE;
       }
 
+      include $configPath;
+
       if ( isset( $config['db_host'] ) )
         $dbHost = $config['db_host'];
 
@@ -755,7 +755,7 @@ You will have to edit the file yourself. Here is what you need to insert in that
         $dbPass = $config['db_pass'];
 
       if ( isset( $config['db_name'] ) )
-        $dbName = $config['db_name'] ;
+        $dbName = $config['db_name'];
 
       $createUser = $this->db->query( "CREATE USER '" . $dbUser . "'@'" . $dbHost . "' IDENTIFIED BY '" . $dbPass . "'" );
       $grantAccess = $this->db->query( "GRANT ALL PRIVILEGES ON * . * TO '" . $dbUser . "'@'" . $dbHost . "' IDENTIFIED BY '" . $dbPass . "' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0" );
