@@ -745,17 +745,10 @@ You will have to edit the file yourself. Here is what you need to insert in that
 
       include $configPath;
 
-      if ( isset( $config['db_host'] ) )
-        $dbHost = $config['db_host'];
-
-      if ( isset( $config['db_user'] ) )
-        $dbUser = $config['db_user'];
-
-      if ( isset( $config['db_pass'] ) )
-        $dbPass = $config['db_pass'];
-
-      if ( isset( $config['db_name'] ) )
-        $dbName = $config['db_name'];
+      $dbHost = ( isset( $config['db_host'] ) ) ? $config['db_host'] : '';
+      $dbUser = ( isset( $config['db_user'] ) ) ? $config['db_user'] : '';
+      $dbPass = ( isset( $config['db_pass'] ) ) ? $config['db_pass'] : '';
+      $dbName = ( isset( $config['db_name'] ) ) ? $config['db_name'] : '';
 
       $createUser = $this->db->query( "CREATE USER '" . $dbUser . "'@'" . $dbHost . "' IDENTIFIED BY '" . $dbPass . "'" );
       $grantAccess = $this->db->query( "GRANT ALL PRIVILEGES ON * . * TO '" . $dbUser . "'@'" . $dbHost . "' IDENTIFIED BY '" . $dbPass . "' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0" );
@@ -765,7 +758,7 @@ You will have to edit the file yourself. Here is what you need to insert in that
         return FALSE;
       }
 
-      if ( ! $this->db->select_db( $config['db_name'] ) ) {
+      if ( ! $this->db->select_db( $dbName ) ) {
         $createDB = $this->db->query( "CREATE DATABASE IF NOT EXISTS `" . $dbName . "`" );
         $dbCreated = ( $createDB ) ? TRUE : FALSE;
 
