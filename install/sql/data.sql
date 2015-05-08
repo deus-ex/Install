@@ -52,7 +52,6 @@ CREATE TABLE IF NOT EXISTS `{db-prefix}prices` (
   `p_id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `desc` text NOT NULL,
-  `license_type` varchar(20) NOT NULL,
   `amount` float NOT NULL,
   `currency` varchar(4) NOT NULL,
   `duration` int(11) NOT NULL,
@@ -63,34 +62,25 @@ CREATE TABLE IF NOT EXISTS `{db-prefix}prices` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gfk_users`
+-- Table structure for table `{db-prefix}users`
 --
 
 CREATE TABLE IF NOT EXISTS `{db-prefix}users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `session` varchar(255) NOT NULL,
-  `name` varchar(60) NOT NULL,
-  `pass` varchar(255) NOT NULL,
-  `old_pass` varchar(60) NOT NULL,
-  `fname` varchar(60) NOT NULL,
-  `lname` varchar(60) NOT NULL,
-  `display_name` varchar(100) NOT NULL,
+  `username` varchar(60) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
   `photo` varchar(255) NOT NULL,
-  `access_level` enum('1','2','3','4','5') NOT NULL DEFAULT '2',
+  `privilege` varchar(20) NOT NULL,
   `auth_code` varchar(200) NOT NULL,
-  `temp_pass` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `ip_address` varchar(20) NOT NULL,
-  `baseurl` varchar(200) NOT NULL,
   `lang` varchar(6) NOT NULL DEFAULT 'en-us',
-  `page_list` int(11) NOT NULL DEFAULT '10',
   `last_login` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `is_online` enum('0','1') NOT NULL DEFAULT '0',
-  `is_active` enum('0','1','2') NOT NULL DEFAULT '0',
+  `registered` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `online` enum('0','1') NOT NULL DEFAULT '0',
+  `active` enum('0','1','2') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
-  KEY `is_online` (`is_online`),
-  KEY `is_active` (`is_active`),
-  KEY `type` (`access_level`)
+  KEY `online` (`online`),
+  KEY `active` (`active`),
 ) ENGINE={db-engine}  DEFAULT CHARSET={db-charset} COLLATE = {db-collation} AUTO_INCREMENT=1 ;
