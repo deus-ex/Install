@@ -175,7 +175,7 @@
       $previous = ( $this->id == '0') ? '' : $this->id - 1;
       $this->lang = new Language();
       $this->pageInfo = array(
-            'page_url' => APP_URL,
+            'page_url' => APP_URI,
             'stage_title' => $this->stage[$this->id]['name'],
             'total_stages' => count( $this->stage ),
             'current_stage' => $this->id + 1,
