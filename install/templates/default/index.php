@@ -8,7 +8,7 @@
     if ( $this->process_form( $_POST, $validate, $this->pageInfo['current_stage'] ) ) {
       $nextPage = $this->pageInfo['current_stage'];
       $this->pageInfo['error'] = NULL;
-      header( "Location: " . APP_URL . $nextPage );
+      header( "Location: " . APP_URI . $nextPage );
 
     } else {
 
@@ -91,9 +91,9 @@
           <?php
 
             if ( $this->id == 0 ) {
-              $url = APP_URL ;
+              $url = APP_URI;
             } else {
-              $url = APP_URL . ( $this->pageInfo['current_stage'] - 1 );
+              $url = APP_URI . ( $this->pageInfo['current_stage'] - 1 );
             }
 
           ?>
