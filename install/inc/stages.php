@@ -1,6 +1,6 @@
 <?php
 
-  $mainUrl = rtrim( preg_replace( '#/install/$#', '', APP_URL ), '/' ) . '/';
+  $mainUrl = rtrim( preg_replace( '#/install/$#', '', APP_URI ), '/' ) . '/';
   $mainDir = rtrim( preg_replace( '#/install/$#', '', APP_DIRECTORY ), '/' ) . '/';
 
 	$stage = array(
