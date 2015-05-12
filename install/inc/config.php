@@ -1,5 +1,16 @@
 <?php
 
+  // $config = json_decode( json_encode( $config ), FALSE );
+  function generate_random_string( $length = 10 ) {
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $charactersLength = strlen( $characters );
+      $randomString = '';
+      for ( $i = 0; $i < $length; $i++ ) {
+          $randomString .= $characters[rand( 0, $charactersLength - 1 )];
+      }
+      return $randomString;
+  }
+
   $config = array(
     'app_name' => 'Jencube App',
     'app_website' => ' https://github.com/deus-ex/Install',
@@ -27,7 +38,7 @@
     'db_type' => 'mysql',
     'db_charset' => 'utf8',
     'db_collation' => 'utf8_general_ci',
-    'en_key' => 'e24ce50b97d42f0f',
+    'en_key' => generate_random_string(),
 
   );
 
